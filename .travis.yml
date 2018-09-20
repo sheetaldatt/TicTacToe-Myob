@@ -1,0 +1,12 @@
+language: java
+# comment if su rights are not needed
+sudo: required
+jdk:oraclejdk10
+#before building
+- sudo chmod +x mvnw
+#Download Maven Dependencies
+- "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -v"
+#buildScripts
+script:
+  #Execute Tests
+- ./mvnw test
